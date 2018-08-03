@@ -23,4 +23,4 @@ Besides the technical aspects of the project, in the end, a variety of processes
 Because of the broad accessibility of scientific modules and it's simplicity, Python 3 was the programming language of choice.
 
 The self-developed watt balance: 
-![Watt balance][https://github.com/maxvwolff/LegoWattBalanceMPIK/blob/master/Assetes/img/IMG_5068.JPG]
+![Watt balance](https://github.com/maxvwolff/LegoWattBalanceMPIK/blob/master/Assetes/img/IMG_5068.JPG)
