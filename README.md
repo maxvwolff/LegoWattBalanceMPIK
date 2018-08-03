@@ -1,5 +1,5 @@
 # Development and measurements with a LEGO wattbalance
-## A project at the Max Planck Institute for Nuclear Physics, Heidelberg (Germany)
+#### A project at the Max Planck Institute for Nuclear Physics, Heidelberg (Germany)
 
 The self-developed watt balance: 
 ![Watt balance](https://github.com/maxvwolff/LegoWattBalanceMPIK/blob/master/Assetes/img/IMG_5068.JPG)
@@ -39,4 +39,4 @@ The Shadow sensor mechanism:
 
 ![BL determination](https://github.com/maxvwolff/LegoWattBalanceMPIK/blob/master/Assetes/img/veltest1.png)
 
-In the end, the watt balance was able to measure a mass with an uncertainty of about 6%.
+#### In the end, the watt balance was able to measure a mass with an uncertainty of about 6%.
