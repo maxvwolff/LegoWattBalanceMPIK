@@ -31,3 +31,11 @@ The coils:
 
 The Shadow sensor mechanism:
 ![Shadow Sensor](https://github.com/maxvwolff/LegoWattBalanceMPIK/blob/master/Assetes/img/IMG_5070.JPG)
+
+# Results
+
+![PID control](https://github.com/maxvwolff/LegoWattBalanceMPIK/blob/master/Assetes/img/veloPIDtest2_corrected.png)
+
+![BL determination](https://github.com/maxvwolff/LegoWattBalanceMPIK/blob/master/Assetes/img/veltest1.png)
+
+In the end, the watt balance was able to measure a mass with an uncertainty of about 6%.
