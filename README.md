@@ -24,3 +24,10 @@ Because of the broad accessibility of scientific modules and it's simplicity, Py
 
 The self-developed watt balance: 
 ![Watt balance](https://github.com/maxvwolff/LegoWattBalanceMPIK/blob/master/Assetes/img/IMG_5068.JPG)
+
+The coils:
+![Coils](https://github.com/maxvwolff/LegoWattBalanceMPIK/blob/master/Assetes/img/IMG_5058.JPG)
+
+
+The Shadow sensor mechanism:
+![Shadow Sensor](https://github.com/maxvwolff/LegoWattBalanceMPIK/blob/master/Assetes/img/IMG_5070.JPG)
