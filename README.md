@@ -1,5 +1,8 @@
 # Development and measurements with a LEGO wattbalance
 
+The self-developed watt balance: 
+![Watt balance](https://github.com/maxvwolff/LegoWattBalanceMPIK/blob/master/Assetes/img/IMG_5068.JPG)
+
 By now, the kilogram is officially defined by the so-called IPK (International Prototype Kilogram), safely stored in Paris. It is basically a cylindrical piece of metal made up of a platin alloy.
 Several problems come with this kind of definition of a unit, one of them being that it is defined by an aribtrarily chosen amount of matter – instead of fundamental constants of nature.
 
@@ -21,9 +24,6 @@ The precise measurement of this induced voltage and the speed at which the coil 
 # Technical implementation
 Besides the technical aspects of the project, in the end, a variety of processes had to be controlled numerically by the means of control software incorporating PID controllers, filters and so on.
 Because of the broad accessibility of scientific modules and it's simplicity, Python 3 was the programming language of choice.
-
-The self-developed watt balance: 
-![Watt balance](https://github.com/maxvwolff/LegoWattBalanceMPIK/blob/master/Assetes/img/IMG_5068.JPG)
 
 The coils:
 ![Coils](https://github.com/maxvwolff/LegoWattBalanceMPIK/blob/master/Assetes/img/IMG_5058.JPG)
