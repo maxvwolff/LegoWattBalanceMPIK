@@ -1,4 +1,5 @@
 # Development and measurements with a LEGO wattbalance
+## A project at the Max Planck Institute for Nuclear Physics, Heidelberg (Germany)
 
 The self-developed watt balance: 
 ![Watt balance](https://github.com/maxvwolff/LegoWattBalanceMPIK/blob/master/Assetes/img/IMG_5068.JPG)
