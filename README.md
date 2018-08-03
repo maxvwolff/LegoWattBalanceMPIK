@@ -22,4 +22,5 @@ The precise measurement of this induced voltage and the speed at which the coil 
 Besides the technical aspects of the project, in the end, a variety of processes had to be controlled numerically by the means of control software incorporating PID controllers, filters and so on.
 Because of the broad accessibility of scientific modules and it's simplicity, Python 3 was the programming language of choice.
 
-(Pictures and more information will follow soon!)
+The self-developed watt balance: 
+![Watt balance][LegoWattBalanceMPIK/Assetes/img/IMG_5068.JPG]
