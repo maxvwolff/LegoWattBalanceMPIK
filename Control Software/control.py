@@ -191,9 +191,9 @@ def getNeededCurrentFast(p_gain, i_gain, d_gain):
 
 # Parameters
 # Velocity Mode
-max_coil_pos = 0.001 # 5mm
+max_coil_pos = 0.0012 # 5mm
 T = 1.5 # Period of the sin. actuation voltage in s
-runningTime = 20 # Velocity Mode measuring time in s
+runningTime = 1 # Velocity Mode measuring time in s
 dt = 0.001
 p_gain_vel = 900
 i_gain_vel = 700
@@ -216,8 +216,8 @@ setpoint = hw.readFotodiode() # level position
 t = 0
 t_start = time.time()
 # Fotodiode calibration values
-foto_slope = 3.2721
-foto_yoffset = -0.0174
+foto_slope = 4.9042
+foto_yoffset = -0.0209
 
 t_list = []
 t_start = time.time()
@@ -272,8 +272,8 @@ plt.xlabel('Time [s]')
 plt.ylabel('Coil position [mm]')
 plt.plot(setpoint_list)
 plt.plot(coil_pos_list)
-#plt.plot(induction_voltages)
-#plt.plot(velocities)
+plt.plot(induction_voltages)
+plt.plot(velocities)
 
 plt.show()
 
@@ -311,9 +311,9 @@ hw.switchRelay(True)
 
 ##### Force Mode
 g = 9.8326
-p_gain = 1600
-i_gain = 15000
-d_gain = 35
+p_gain = 1900
+i_gain = 15000   ########## !!!!!! NOT ZERO
+d_gain = 50
 
 dt = 0.01 #s
 
