@@ -193,11 +193,11 @@ def getNeededCurrentFast(p_gain, i_gain, d_gain):
 # Velocity Mode
 max_coil_pos = 0.001 # 5mm
 T = 1.5 # Period of the sin. actuation voltage in s
-runningTime = 1000 # Velocity Mode measuring time in s
+runningTime = 20 # Velocity Mode measuring time in s
 dt = 0.001
-p_gain_vel = 800
-i_gain_vel = 500
-d_gain_vel = 0
+p_gain_vel = 900
+i_gain_vel = 700
+d_gain_vel = 10
 
 
 hw = Hardware()
@@ -216,45 +216,10 @@ setpoint = hw.readFotodiode() # level position
 t = 0
 t_start = time.time()
 # Fotodiode calibration values
-foto_slope = 2.9309
-foto_yoffset = -0.0217
+foto_slope = 3.2721
+foto_yoffset = -0.0174
 
-
-'''
-intensities = []
-induction_voltages = []
-
-dt_list = []
-
-mean_intensity = 0
-
-while t < runningTime:
-    t = time.time() - t_start
-    
-    voltage = Vp * math.sin(2*math.pi / T * t)
-    hw.setOutput(voltage)
-    #print(voltage)
-
-    ### TODO: rename intensity to elongation
-    raw_intensity = hw.readFotodiode()
-    intensity = (raw_intensity - foto_yoffset) / foto_slope
-    intensities.append(intensity)
-    induction_voltages.append(hw.readInductionVoltage())
-
-    mean_intensity += raw_intensity
-    last_intensity = intensity
-    
-    while time.time() - t_start < t + dt:
-        pass
-    
-    actual_dt = time.time() - t_start - t
-    dt_list.append(actual_dt)
-
-'''
-
-
-
-
+t_list = []
 t_start = time.time()
 t = 0
 
@@ -289,6 +254,7 @@ while t < runningTime:
     
     hw.setOutput(total_correction)
 
+    #t_list.append(t)
     setpoint_list.append(setpoint)
     coil_pos_list.append(coil_pos)
     induction_voltages.append(hw.readInductionVoltage())
@@ -298,16 +264,19 @@ while t < runningTime:
     while time.time() - t_start < t + dt:
         pass
 
-    print("dt: " + str(time.time() - t_start - t))
+    #print("dt: " + str(time.time() - t_start - t))
 
-'''
+axes = plt.gca()
+plt.title('Velocity Mode PID control')
+plt.xlabel('Time [s]')
+plt.ylabel('Coil position [mm]')
 plt.plot(setpoint_list)
 plt.plot(coil_pos_list)
-plt.plot(induction_voltages)
-plt.plot(velocities)
+#plt.plot(induction_voltages)
+#plt.plot(velocities)
 
 plt.show()
-'''
+
 hw.setOutput(0)
 
 
@@ -316,45 +285,14 @@ hw.setOutput(0)
 
 mean_intensity /= len(velocities)
 
-'''
-# Calculate velocity
-last_intensity = intensities[0]
-velocities = []
-
-for i in range(0, len(intensities)):
-    if i == 0:
-        continue
-    if i == len(intensities) - 2:
-        break
-    v = (intensities[i + 1] - intensities[i - 1]) / (dt_list[i] * 2)
-    velocities.append(v)
-
-t_list = []
-
-for i, val in enumerate(dt_list):
-    if i != 0:
-        t_list.append(t_list[i - 1] + val)
-    else:
-        t_list.append(0)
-
-'''
-
 
 # Fit to linear function -> slope will be BL
 BL, offset = np.polyfit(velocities, induction_voltages, 1)
 
 print("VELOCITY MODE FINISHED:  BL = " + str(BL) + " Offset = " + str(offset))
 
-'''
-plt.plot(t_list, intensities)
-plt.plot(t_list[:-3], velocities)
-plt.plot(t_list, induction_voltages)
-plt.plot(t_list, dt_list)
-plt.show()
-'''
 
 plt.scatter(velocities, induction_voltages, s=8)
-
 axes = plt.gca()
 plt.title('Velocity Mode BL-factor determination')
 plt.xlabel('Velocity [m/s]')
@@ -373,28 +311,11 @@ hw.switchRelay(True)
 
 ##### Force Mode
 g = 9.8326
-p_gain = 1400
-i_gain = 14000
-d_gain = 40
+p_gain = 1600
+i_gain = 15000
+d_gain = 35
 
 dt = 0.01 #s
-
-'''
-input("Put the TARE MASS on the left side and push enter!")
-I1 = getNeededCurrent(p_gain, i_gain, d_gain, 0, 25)
-
-input("Put the TEST MASS on the right side and push enter!")
-I2 = getNeededCurrent(p_gain, i_gain, d_gain, 0, 25)
-
-input("Remove the TEST MASS on the right side and push enter!")
-I3 = getNeededCurrent(p_gain, i_gain, d_gain, 0, 25)
-
-input("Put the TEST MASS on the right side and push enter!")
-I4 = getNeededCurrent(p_gain, i_gain, d_gain, 0, 25)
-
-input("Remove the TEST MASS on the right side and push enter!")
-I5 = getNeededCurrent(p_gain, i_gain, d_gain, 0, 25)
-'''
 
 I_total = getNeededCurrentFast(p_gain, i_gain, d_gain)
 
